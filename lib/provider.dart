@@ -15,14 +15,13 @@ class Provider2 with ChangeNotifier {
   final dio = Dio();
 
   void postLogin() async {
-    Response response = await dio.post(
-      'http://api.angazny.com/app/user/login',
-      data: {
-        "API version": "1.3",
-        "email": "aff@demo.demo",
-        "password": "000111222",
-      },
-    );
+    dio.options.headers['version'] = '1.3.1';
+    Response response = await dio.post('http://api.angazny.com/app/user/login',
+        data: {
+          "email": "aff@demo.demo",
+          "password": "000111222",
+        },
+        options: Options(headers: {"version": "1.3.5"}));
     if (response == 200) {
       print('Eroor');
     }
