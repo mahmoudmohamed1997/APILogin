@@ -16,7 +16,7 @@ class Provider2 with ChangeNotifier {
 
   void postLogin() async {
     Response response = await dio.post(
-      'https://api.angazny.com/app/user/login',
+      'http://api.angazny.com/app/user/login',
       data: {
         "API version": "1.3",
         "email": "aff@demo.demo",
